@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import Input from "./Input";
+const App = () => {
+  const [count, setCount] = useState(null);
+  const [count2, setCount2] = useState(null);
 
-function App() {
+  const handlechange = (e) =>{
+    setCount(e.target.value)
+    console.log(count)
+  }
+
+  const handlechange2 = (e) =>{
+    console.log(count2)
+    setCount2(e.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>   
+        Add Numbe program
+        <input type="number" onChange={(e)=>handlechange(e)} value={count ? count : ""} />
+        <input type="number" onChange={(e)=>handlechange2(e)} value={count2 ? count2 : ""}  />
+        <Input value={count ? count : ""} values2={count2 ? count2 : ""}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
